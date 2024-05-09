@@ -7,7 +7,7 @@ MILESTONE 2
 aggiungere event listener a tutti gli operatori: quando si clicca su un operatore, salvare l'operatore cliccato e il primo operando, quindi resettare il numero in alto
 MILESTONE 3
 aggiungere event listener al pulsante "=": quando si clicca su =, salvare il secondo operando, effetuare il calcolo corretto in base all'operatore selezionato e visualizzare il risultato in alto
-MILESTONE 4
+MILESTONE 4 
 pulsante canc: cliccando il pulsante si resetta il calcolo
 :stella2: BONUS
 verificare che non si stia cercando di dividere per 0 -->
@@ -15,11 +15,13 @@ verificare che non si stia cercando di dividere per 0 -->
 <!-- RISOLUZIONE DEL PROBLEMA: -->
 
 Milestone 1: 
-    -Dichiaro delle variabili per selezionare gli elementi dal DOM
-    -Dichiaro delle variabili per i numeri e le operazioni che serviranno nelle funzioni
+    -Dichiaro delle variabili per i numeri
     -Ciclo attraverso ogni elemento con classe "pad_number" e aggiungo un event listener; ad ogni click eseguo la funzione addNumber
-    -Definisco la funzione che servirà a memorizzare nelle variabili di prima i valori del primo e del secondo numero digitato, scrivendoli al posto dello "0"
-    -Verifico se il primo numero è stato già digitato, in caso contrario il valore viene assegnato al secondo numero
-    -Tramite return, ottengo un array contenenti i due valori digitati
+    -La funzione addNumber() si occuperà di far visualizzare il numero digitato in pagina al posto dello 0
 Milestone 2: 
-    
+    -Aggiungo gli event listener ai vari operatori
+    -Creo una funzione per salvare il primo numero digitato e l'operatore corrente, resettando il valore visualizzato a 0
+Milestone 3:
+    -Creo una funzione per ottenere il risultato e visualizzarlo sulla calcolatrice
+Milestone 4:
+    -Creo una funzione per resettare i valori dell'operatore corrente e dei due numeri al click di C

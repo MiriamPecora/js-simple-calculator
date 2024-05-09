@@ -1,48 +1,58 @@
-// Dichiaro delle variabili per selezionare gli elementi dal DOM
+// Dichiaro delle variabili per i numeri
 let padNumber = document.getElementsByClassName("pad_number");
 let result = document.getElementById("result");
-let padOperator = document.getElementsByClassName("pad_operator");
-
-// Dichiaro delle variabili per i numeri e le operazioni che serviranno nelle funzioni
+let currentOp;
 let firstNumber;
 let secondNumber;
-let currentOp;
+
+// **** FUNZIONE PER VISUALIZZARE I NUMERI DIGITATI ****
 
 // Ciclo attraverso ogni elemento con classe "pad_number" e aggiungo un event listener; ad ogni click eseguo la funzione addNumber
 for(let i = 0; i < padNumber.length; i++) {
     padNumber[i].addEventListener("click", addNumber)
 };
 
-// Definisco la funzione che servirà a memorizzare nelle variabili di prima i valori del primo e del secondo numero digitato, scrivendoli al posto dello "0"
 function addNumber() {
     result.textContent = this.textContent;
-    let parsedNumber = parseInt(result.textContent);
+}
+
+// **** FUNZIONI PER LE OPERAZIONI ****
+
+// Aggiungo gli event listener ai vari operatori
+document.getElementById("sum_symbol").addEventListener("click", getFirstNumberAndOperator);
+document.getElementById("substract_symbol").addEventListener("click", getFirstNumberAndOperator);
+document.getElementById("multiplication_symbol").addEventListener("click", getFirstNumberAndOperator);
+document.getElementById("divide_symbol").addEventListener("click", getFirstNumberAndOperator);
+document.getElementById("equals_symbol").addEventListener("click", getResult);
+
+// Creo una funzione per salvare il primo numero digitato e l'operatore corrente, resettando il valore visualizzato a 0
+function getFirstNumberAndOperator(){
+    firstNumber = parseInt(result.textContent);
+    currentOp = this.textContent;
+    result.textContent = 0;
+}
+
+// Creo una funzione per ottenere il risultato e visualizzarlo sulla calcolatrice
+function getResult(){
+    secondNumber = parseInt(result.textContent);
+
+    // Anziché creare diverse funzioni da eseguire ad ogni switch case, seseguo le operazioni direttamente in questa funzione per non fare ripetizioni eccessive
+    switch (currentOp) {
+        case "+":
+            result.textContent = firstNumber + secondNumber;
+            break;
+        case "-":
+            result.textContent = firstNumber - secondNumber;
+            break;
+        case "×":
+            result.textContent = firstNumber * secondNumber;
+            break;
+        case "÷":
+            result.textContent = firstNumber / secondNumber;
+            break;
     
-    // Verifico se il primo numero è stato già digitato, in caso contrario il valore viene assegnato al secondo numero
-    if (!isNaN(parsedNumber)) {
-        if (typeof firstNumber === 'undefined') {
-            firstNumber = parsedNumber;
-        } else {
-            secondNumber = parsedNumber;
-        }
+        default:
+            console.log("Errore nel controller dell'operatore: ", currentOp);
+            break;
     }
-
-    console.log(firstNumber, secondNumber);
-    // Tramite return, ottengo un array contenenti i due valori digitati
-    return [firstNumber, secondNumber];
 }
-
-for(let i = 0; i < padOperator.length; i++) {
-    padOperator[i].addEventListener("click", operation)
-};
-
-function operation() {
-    result.textContent = this.textContent;
-
-    console.log(this.textContent)
-}
-
-
-
-
-
