@@ -16,7 +16,7 @@ for(let i = 0; i < padNumber.length; i++) {
 // Definisco la funzione che servirà a memorizzare nelle variabili di prima i valori del primo e del secondo numero digitato, scrivendoli al posto dello "0"
 function addNumber() {
     result.textContent = this.textContent;
-    var parsedNumber = parseInt(result.textContent);
+    let parsedNumber = parseInt(result.textContent);
     
     // Verifico se il primo numero è stato già digitato, in caso contrario il valore viene assegnato al secondo numero
     if (!isNaN(parsedNumber)) {
@@ -32,7 +32,15 @@ function addNumber() {
     return [firstNumber, secondNumber];
 }
 
+for(let i = 0; i < padOperator.length; i++) {
+    padOperator[i].addEventListener("click", operation)
+};
 
+function operation() {
+    result.textContent = this.textContent;
+
+    console.log(this.textContent)
+}
 
 
 
