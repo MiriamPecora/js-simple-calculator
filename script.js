@@ -56,3 +56,19 @@ function getResult(){
             break;
     }
 }
+
+// **** FUNZIONE PER RESETTARE IL CALCOLO ****
+
+// Al click del bottone "C", eseguo la funzione resetCalc
+document.getElementById("canc_btn").addEventListener("click", resetCalc);
+
+// All'interno della funzione, riporto a 0 i valori numerici e a " " l'operatore corrente
+function resetCalc() {
+    // Inserisco "canc" per debug
+    result.textContent = "canc";
+    firstNumber = 0;
+    secondNumber = 0;
+    currentOp = "";
+    console.log(firstNumber, secondNumber, currentOp)
+    // console.log("voglio resettare");
+}

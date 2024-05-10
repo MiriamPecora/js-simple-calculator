@@ -25,3 +25,5 @@ Milestone 3:
     -Creo una funzione per ottenere il risultato e visualizzarlo sulla calcolatrice
 Milestone 4:
     -Creo una funzione per resettare i valori dell'operatore corrente e dei due numeri al click di C
+Bonus: 
+    
