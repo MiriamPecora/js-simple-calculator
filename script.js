@@ -36,7 +36,7 @@ function getFirstNumberAndOperator(){
 function getResult(){
     secondNumber = parseInt(result.textContent);
 
-    // Anziché creare diverse funzioni da eseguire ad ogni switch case, seseguo le operazioni direttamente in questa funzione per non fare ripetizioni eccessive
+    // Anziché creare diverse funzioni da eseguire ad ogni switch case, eseguo le operazioni direttamente in questa funzione per non fare ripetizioni eccessive
     switch (currentOp) {
         case "+":
             result.textContent = firstNumber + secondNumber;
@@ -49,6 +49,11 @@ function getResult(){
             break;
         case "÷":
             result.textContent = firstNumber / secondNumber;
+                //Aggiungo la condizione per cui verifico se uno dei due numeri è == a 0, in quel caso non continuo l'operazione e mostro un messaggio di errore 
+                if (firstNumber == 0 || secondNumber == 0) {
+                    result.textContent = "error";
+                    // console.log("Stai cercando di dividere per 0!")
+                }
             break;
     
         default:
@@ -72,3 +77,4 @@ function resetCalc() {
     console.log(firstNumber, secondNumber, currentOp)
     // console.log("voglio resettare");
 }
+

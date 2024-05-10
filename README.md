@@ -26,4 +26,5 @@ Milestone 3:
 Milestone 4:
     -Creo una funzione per resettare i valori dell'operatore corrente e dei due numeri al click di C
 Bonus: 
-    
+    -Aggiungo una condizione all'interno dello switch case della divisione
+        -Tramite quella, verifico se uno dei due numeri è == a 0, in quel caso non continuo l'operazione e mostro un messaggio di errore
